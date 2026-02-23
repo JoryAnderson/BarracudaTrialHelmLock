@@ -1,7 +1,6 @@
- package com.arcaeic.osrs.BarracudaTrialHelmLock.features;
+package com.arcaeic.osrs.BarracudaTrialHelmLock.features;
 
 import com.arcaeic.osrs.BarracudaTrialHelmLock.model.*;
-import com.arcaeic.osrs.BarracudaTrialHelmLock.module.PluginLifecycleComponent;
 import com.arcaeic.osrs.BarracudaTrialHelmLock.util.BarracudaTrialUtil;
 import com.arcaeic.osrs.BarracudaTrialHelmLock.BarracudaTrialHelmLockConfig;
 
@@ -21,12 +20,10 @@ import javax.inject.Singleton;
 @Slf4j
 @Singleton
 public class BarracudaTrialHelmLock
-	implements PluginLifecycleComponent
 {
 
 	private final Client client;
 	private final BarracudaTrialHelmLockConfig config;
-
 	private Set<Integer> clickableObjects;
 
 	@Inject
@@ -76,7 +73,8 @@ public class BarracudaTrialHelmLock
 		}
 	}
 
-	@Override
+	@SuppressWarnings("unused")
+	@Subscribe
 	public void onConfigChanged(ConfigChanged e)
 	{
 		log.info("Config change detected: {}: {} -> {}", e.getKey(), e.getOldValue(), e.getNewValue());
