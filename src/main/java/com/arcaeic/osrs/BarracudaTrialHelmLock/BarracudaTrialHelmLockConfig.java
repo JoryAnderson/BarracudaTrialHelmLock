@@ -5,11 +5,11 @@ import net.runelite.client.config.ConfigGroup;
 import net.runelite.client.config.ConfigItem;
 import net.runelite.client.config.ConfigSection;
 
-@ConfigGroup(BarracudaTrialHelmLockConfig.CONFIG_GROUP)
+@ConfigGroup(BarracudaTrialHelmLockConfig.BARRACUDA_TRIAL_HELM_LOCK)
 public interface BarracudaTrialHelmLockConfig extends Config
 {
 
-	String CONFIG_GROUP = "BarracudaTrialHelmLock";
+	String BARRACUDA_TRIAL_HELM_LOCK = "BarracudaTrialHelmLock";
 
 	@ConfigSection(
 			name = "Menu Swaps",
