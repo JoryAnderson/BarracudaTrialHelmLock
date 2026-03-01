@@ -43,11 +43,11 @@ public class BarracudaTrialHelmLock
 			Arrays.stream(SailFacility.values())
 				.map(SailFacility::getGameObjectIds)
 				.flatMapToInt(Arrays::stream),
-			Arrays.stream(WindFacilityEnum.WIND_CATCHER.getGameObjectIds())
+			Arrays.stream(WindFacility.WIND_CATCHER.getGameObjectIds())
 				.filter(s -> config.isClickableWindCatcher()),
-			Arrays.stream(WindFacilityEnum.GALE_CATCHER.getGameObjectIds())
+			Arrays.stream(WindFacility.GALE_CATCHER.getGameObjectIds())
 				.filter(s -> config.isClickableGaleCatcher()),
-			Arrays.stream(WindFacilityEnum.CRYSTAL_EXTRACTOR.getGameObjectIds())
+			Arrays.stream(WindFacility.CRYSTAL_EXTRACTOR.getGameObjectIds())
 				.filter(s -> config.isClickableCrystalExtractor())
 		)
 		.flatMapToInt(s -> s)
@@ -77,7 +77,10 @@ public class BarracudaTrialHelmLock
 	@Subscribe
 	public void onConfigChanged(ConfigChanged e)
 	{
-		log.info("Config change detected: {}: {} -> {}", e.getKey(), e.getOldValue(), e.getNewValue());
-		clickableObjects = reloadClickableObjects();
+		if (BarracudaTrialHelmLockConfig.BARRACUDA_TRIAL_HELM_LOCK.equals(e.getGroup()))
+		{
+			log.info("{}: {} -> {}", e.getKey(), e.getOldValue(), e.getNewValue());
+			clickableObjects = reloadClickableObjects();
+		}
 	}
 }

@@ -6,7 +6,7 @@ import net.runelite.api.gameval.ObjectID;
 
 @RequiredArgsConstructor
 @Getter
-public enum WindFacilityEnum
+public enum WindFacility
 {
 
 	WIND_CATCHER(
