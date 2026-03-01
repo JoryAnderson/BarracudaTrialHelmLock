@@ -28,7 +28,7 @@ dependencies {
 }
 
 group = 'com.arcaeic.osrs.BarracudaTrialHelmLock'
-version = '1.00'
+version = '1.01'
 
 tasks.withType(JavaCompile).configureEach {
 	options.encoding = 'UTF-8'
