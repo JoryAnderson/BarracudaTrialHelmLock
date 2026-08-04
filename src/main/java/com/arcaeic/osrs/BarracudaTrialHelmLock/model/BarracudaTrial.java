@@ -39,8 +39,7 @@ public enum BarracudaTrial
 			ObjectID.SAILING_BOAT_STEERING_KANDARIN_3X8_CRYSTALLISED,
 			NpcID.SAILING_BT_GWENITH_GLIDE_CRYSTAL_STEERING_HEADBAR_NPC
 		}
-	),
-	;
+	);
 
 	private final int[] gameObjectIds;
 

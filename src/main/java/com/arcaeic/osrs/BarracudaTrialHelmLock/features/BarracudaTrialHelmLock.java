@@ -10,6 +10,7 @@ import net.runelite.api.MenuAction;
 import net.runelite.api.events.MenuEntryAdded;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.events.ConfigChanged;
+
 import java.util.Arrays;
 import java.util.Set;
 import java.util.stream.Collectors;
@@ -59,17 +60,12 @@ public class BarracudaTrialHelmLock
 	@SuppressWarnings("unused")
 	public void onMenuEntryAdded(MenuEntryAdded e)
 	{
-		if (!BarracudaTrialUtil.isInBarracudaTrialAndAtHelm(client))
+		if (BarracudaTrialUtil.isInBarracudaTrialAndAtHelm(client)
+			&& e.getMenuEntry().getWidget() == null
+			&& e.getMenuEntry().getType() != MenuAction.SET_HEADING
+			&& !clickableObjects.contains(e.getIdentifier()))
 		{
-			return;
-		}
-
-		if (e.getMenuEntry().getType() != MenuAction.SET_HEADING)
-		{
-			if (!clickableObjects.contains(e.getIdentifier()))
-			{
-				e.getMenuEntry().setDeprioritized(true);
-			}
+			e.getMenuEntry().setDeprioritized(true);
 		}
 	}
 
